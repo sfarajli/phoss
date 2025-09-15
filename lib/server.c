@@ -13,7 +13,7 @@ static char *link = NULL;
 bool server_run(const char *ip, const int port, const char *pl);
 bool _server_close();
 bool _interpreter_close();
-bool _interpreter_start();
+bool _interpreter_start(const char *pl);
 bool _request_handle();
 char *_get_link(const char *ip, const int port);
 void _queue_handle();
@@ -35,11 +35,23 @@ _get_link(char *ip, int port)
 	return link;
 }
 
+void
+_queue_handle()
+{
+	/* Listen to the given link */
+	/* Store all the JSON requests inside of a queue structure */
+	/* Call request_handle one by one for each request in queue */
+	/* Cancel all the following requests if one request fails */
+}
+
 bool
 server_run(const char *ip, const char *port, char *pl)
 {
-	/* TODO: Implement */
-	/* Set the global link variable using `_get_link()` */
-	/* Start the interpreter using `_interpreter_start()` */
-	/* Call `_queue_handle()` which handles the queue and calls `_request_handle` when needed */
+	if ((link = _get_link(ip, port)) == NULL)
+		return false;
+
+	if (_interpreter_start(pl) == NULL)
+		return false;
+
+	_queue_handle();
 }
