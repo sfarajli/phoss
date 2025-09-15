@@ -74,7 +74,7 @@ void
 _request_enqueue(cJSON *request_json)
 {
 	if (request_queue_isfull())
-		return NULL;
+		return;
 
 	request_queue->rear = (request_queue->rear + 1) % REQUEST_LIMIT;
 	request_queue->items[request_queue->rear] = request_json;
@@ -123,8 +123,12 @@ void
 _queue_handle()
 {
 	/* Initialize request queue */
-	/* Listen to the given link */
-	/* Store all the JSON requests inside of the queue */
+	if (!_request_queue_init()) {
+		return;
+	}
+
+	/* Listen to the link */
+	/* Store all the JSON requests in the queue */
 	/* If the number of requests exceed the limit give a warning */
 	/* Call request_handle one by one for each request in queue */
 	/* Do not handle the next request unless the current one is completely finished */
