@@ -1,5 +1,8 @@
 <!-- TODO: handle if error is only sent to the client that sent the corresponding request, or to all the other ones if they are in the queue. -->
 <!-- TODO: Specify C-C behaviour  -->
+<!-- TODO: What is line delimiter of JSON messages -->
+<!-- TODO: is id useful in JSON objects? -->
+
 
 # Overview
 A simple client-server protocol for executing code for interactive programming.
@@ -9,7 +12,7 @@ A simple client-server protocol for executing code for interactive programming.
 -   IP: localhost (default)
 -   Port: 5252 (default)
 -   Encoding: UTF-8 text
--   Framing: Line-delimited JSON messages
+-   Framing: Line-delimited JSON messages 
 
 ## Roles
 -   Server
