@@ -22,6 +22,7 @@ A simple client-server protocol for executing code for interactive programming.
     -   Intermediate outputs and execute replies have the same id as the corresponding execution request.
     -   Maintains a FIFO request queue
     -   If an error has occurred all requests in queue canceled and error an message is sent to the client(s). 
+    -   Request limit is 100
 -   Client
     -   Sends requests to the server.
     -   Waits for replies not outputs.
