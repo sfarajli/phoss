@@ -40,9 +40,8 @@ bool
 _request_queue_init(void)
 {
 	request_queue = (JSONQueue*)malloc(sizeof(JSONQueue));
-	if (!request_queue) {
+	if (!request_queue)
 		return false;
-	}
 
 	request_queue->front = 0;
 	request_queue->rear = -1;
@@ -123,9 +122,8 @@ void
 _queue_handle()
 {
 	/* Initialize request queue */
-	if (!_request_queue_init()) {
+	if (!_request_queue_init())
 		return;
-	}
 
 	/* Listen to the link */
 	/* Store all the JSON requests in the queue */
